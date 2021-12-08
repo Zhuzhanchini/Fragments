@@ -2,9 +2,6 @@ package example.julia.fragments
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.ActionMenuView
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -31,17 +28,19 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(fragment!!)
             true
         }
-        bottomNavigationMenu.selectedItemId=R.id.fragment_1
-        fun replaceFragment(fragment: Fragment) {
+        bottomNavigationMenu.selectedItemId = R.id.fragment_1
+
+
+    fun replaceFragment(fragment: Fragment) {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragment_container, fragment)
-                .addToBackStack(fragment.tag)
                 .commit()
 
         }
 
     }
+
     private fun replaceFragment(fragment: Fragment) {
 
     }

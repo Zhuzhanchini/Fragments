@@ -11,11 +11,11 @@ class SecondFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        inflater: LayoutInflater, fragment_container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
 
-        val view= inflater.inflate(R.layout.fragment_second, container, false)
+        val view= inflater.inflate(R.layout.fragment_second, fragment_container, false)
         return view
     }
 
