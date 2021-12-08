@@ -24,5 +24,4 @@
         android:layout_gravity="center_horizontal|bottom"
         android:text="@string/end_fragment" />
 
-
 </FrameLayout>
