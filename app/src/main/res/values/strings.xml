@@ -7,4 +7,10 @@
     <string name="switch_fragments">Switch Fragments</string>
     <string name="start_fragment">Start Fragment</string>
     <string name="end_fragment">End Fragment</string>
+    <string name="_1_fragment">1_fragment</string>
+    <string name="_2_fragment">_2_fragment</string>
+    <string name="First">First</string>
+    <string name="Second">Second</string>
+    <string name="expectations">Expectations</string>
+    <string name="reality">Reality</string>
 </resources>

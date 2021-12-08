@@ -3,41 +3,54 @@ package example.julia.fragments
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ActionMenuView
 import android.widget.Button
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
+lateinit var bottomNavigationMenu: BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-
-    lateinit var switchFragmentButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        switchFragmentButton = findViewById(R.id.switch_fragments_button)
+        bottomNavigationMenu = findViewById(R.id.bottom_navigation_menu)
 
+        bottomNavigationMenu.setOnItemSelectedListener { item ->
+            var fragment: Fragment? = null
+            when (item.itemId) {
+                R.id.fragment_1 -> {
+                    fragment = FirstFragment()
 
-        val startFragment = StartFragment()
-        val endFragment = EndFragment()
-
-        switchFragmentButton.setOnClickListener {
-            val fragment =
-                when (supportFragmentManager.findFragmentById(R.id.fragment_container)) {
-                    is StartFragment -> endFragment
-                    is EndFragment -> startFragment
-                    else -> startFragment
                 }
-
+                R.id.fragment_2 -> {
+                    fragment = SecondFragment()
+                }
+            }
+            replaceFragment(fragment!!)
+            true
+        }
+        bottomNavigationMenu.selectedItemId=R.id.fragment_1
+        fun replaceFragment(fragment: Fragment) {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragment_container, fragment)
+                .addToBackStack(fragment.tag)
                 .commit()
+
         }
 
-
+    }
+    private fun replaceFragment(fragment: Fragment) {
 
     }
 
 
-
-
 }
+
+
+
+
+
 
